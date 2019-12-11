@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Non-Deterministic Finite Automata</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="css/nfa.css">                          
+
+</head>
+
+    <body>
+        
+        <div class="container">
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Finite State Automata</h1>
+                <p class="tm-site-description">An Introduction to Automata Theory</p>
+                
+                <nav class="navbar navbar-expand-md tm-main-nav-container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
+                        <ul class="nav nav-fill tm-main-nav-ul">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="DFA.html">DFA</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">NFA</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                
+            </header>
+            
+            <div class="tm-main-content">
+                <section class="tm-margin-b-l">
+                    <header>
+                        <h2 class="tm-blue-text">Non-Deterministic Finite Automata</h2>    
+                    </header>
+
+                    <!-- Deterministic -->
+                    <div href="#" class="nondeterministic">
+                        <p align="justify"><b>Non-Deterministic Finite Automata</b> (NFA) - from the word <i>non-deterministic</i>, has a principle where it can be in, and transition to, "multiple states" at once depending on the given input. In NFA, there might be several possible final states that could result from reading a given string of inputs; as long as at least one of them is a final state, then the string is accepted.<br><br>Now that we know a NFA may transition to multiple state at a time, then it is obvious that the transition function of a NFA is different from DFA which can be defined as δ: Q x ∑→ 2 ^ Q. This means that the cross product of an element of set Q(states) and an element of set ∑(inputs) will have a transition to the element of power set of Q, not just from the elements of set Q itself. <br><br><b>Power set</b> means "the set of all subsets of a given set", for example we have Q = {A,B,C}, the Power set of Q or P(Q) = {{∅},{A},{B},{C},{A,B},{A,C},{B,C},{A,B,C}}.<br><br>
+                        
+                        The definition of Deterministic Finite Automata is a 5-tuple (Q,Σ,I,F,δ) where:</p>
+
+                        <ul>
+                            <li>Q: finite set of States.</li>
+                            <li>∑: finite set of Inputs.</li>
+                            <li>q: the Initial/Starting State.</li>
+                            <li>F: finite set of Final/Accepting States.</li>
+                            <li>δ: Transition Function.</li>
+                        </ul>
+
+                        <h4 class="tm-main-title">Graphical Representation of NFA</h4>
+                        <ol>
+                            <li>The states are represented by vertices (circles).</li>
+                            <li>The arc or arrow labeled with input/s.</li>
+                            <li>The initial state is marked with plain arrow.</li>
+                            <li>The final state/s are marked by double circle.</li>
+                        </ol>
+
+                        <div class="examples">
+                            <h5 class="tm-main-title">Example:</h5>
+                            <p>Problem: Create a NFA with ∑ = {0, 1} that accepts all strings ending with '01'. <br>
+                               Let:
+                               Q = {A, B, C} or the set of States<br>
+                               ∑ = {0, 1} or the set of Inputs<br>
+                               I = {A} or the Initial State<br>
+                               F = {C} or the set of Final States
+                            </p>
+
+                            <p>Transition Diagram: </p>
+                            <div class="diagram1" >
+                                <div class="States">
+                                    <!-- Initial State Vertex -->
+                                    <svg width="120px" height="40px" class="initial" id="initial" font-size="12">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="40" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="4" y="15">Start</text>
+                                    </svg>
+
+                                    <!-- State A input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-0" font-size="12">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15">0</text>
+                                    </svg>
+
+                                    <!-- State A input 0,1 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-01" font-size="12">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4"  markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0 z" fill="black" stroke="black" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke="black" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="10" y="25">0,1</text>
+                                    </svg>
+
+                                    <!-- State B input 0 Vertex -->
+
+                                    <!-- State B input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-1" font-size="12">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15">1</text>
+                                    </svg>
+
+                                    <!-- State C input 0,1 Vertex -->
+                                    
+
+                                    <!-- Verteces -->
+                                    <div class="State" id="s-a">A</div>
+                                    <div class="State" id="s-b">B</div>
+                                    <div class="State" id="s-c">C</div>
+                                </div>
+                            </div>
+
+                            <p id="example1">Transition Table:</p>
+                            <div class="table">
+                                <table class="table-example1">
+                                    <tr>
+                                        <th id="hide"></th>
+                                        <th>∑ = 0</th>
+                                        <th>∑ = 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = A</th>
+                                        <td>A,B</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = B</th>
+                                        <td></td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = C</th>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>    
+                            </div>
+                            <!-- end example1 -->
+                            <p>Explanation: </p>
+                            <video id="explanation1" width="700" height="300" controls>
+                              <source src="video/NFA.mp4">
+                            Your browser does not support the video tag.
+                            </video>
+                        <!-- end examples -->
+                        </div>
+                        <!-- start of quiz -->
+                        <div>
+                          <span><-----TEST YOURSELF-----></span>
+                          <br><br>
+                          <p>
+                            1. The Finite Automata is called NFA when there exists _________ for a specific input.<br>
+                            a) Single Path<br>
+                            b) Multiple Paths<br>
+                            c) Only Two Paths<br>
+                            d) None of the above
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: A<br>
+                                Explanation: The principle of NFA is that it can transition to multiple states at a time.</p>
+                             </div>
+                          </div>
+                          <p>
+                            2.) Transition Function of NFA <br>
+                            a) ∑ x Q -> 2 ^ ∑ <br>
+                            b) Q x ∑ -> 2 ^ Q <br>
+                            c) ∑ x Q -> 2 ^ Q <br>
+                            d) Q x ∑ -> 2 ^ ∑
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: B <br>
+                                NFA's transition function is the cross product of Q(State) and ∑(Input) which will have a result of the power set of Q or 2^Q.</p>
+                             </div>
+                          </div>
+                          <p>
+                            3.) The Principle of NFA<br>
+                            a) Multiple State at a time <br>
+                            b) One State at a time <br>
+                            c) none of the above
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: A
+                                Explanation: A NFA can be in and Transition to MULTIPLE STATES at a time.</p>
+                             </div>
+                          </div>
+                             <p>
+                            4.) When will NFA accept a string? <br>
+                            a) All paths are in the final state <br>
+                            b) At least one of the paths end in final state<br>
+                            c) Two Paths should be in the final state
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: B
+                                Explanation: The NFA accepts string if at least one transition end in the FINAL STATE.</p>
+                             </div>
+                        </div>
+                            <p>
+                             5.) From the Key Definition of FA (Q,Σ,I,F,δ); Statement 1: "I" can be more than 1 state. Statement 2: "F" can be more than 1 state.<br>
+                              a) Statement 1 and 2 are Correct<br>
+                              b) Statement 1 is Correct while 2 is Wrong <br>
+                              c) Statement 1 is Wrong and 2 is Wrong <br>
+                              d) None of the above
+                              </p>
+                              <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: D
+                                Explanation: None of the above, because F can be more than 1 State </p>
+                             </div>
+                        </div>
+                        <!-- end of quiz -->
+                    </div>
+
+                </section>
+
+            </div>
+
+            <footer>
+                Made by: Arvin Jay Nadal | Adriane Cortez
+            </footer>    
+        </div>
+        
+        <!-- load JS files -->
+       <!--
+        <script>
+            //document.getElementById("s-a").style.backgroundColor = "red";
+            var x = document.getElementById("s-a");
+            x.textContent = "2";
+            console.log(x);
+            /*var x = document.getElementById("arrow1");
+            x.style.fill = "red";
+            console.log(x);*/
+        </script>
+        -->
+        <script src="js/dfa.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        
+</body>
+</html>

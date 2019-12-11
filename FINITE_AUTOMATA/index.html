@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finite Automata</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="css/tooplate-style.css">                          
+
+</head>
+
+    <body>
+        
+        <div class="container">
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Finite State Automata</h1>
+                <p class="tm-site-description">An Introduction to Automata Theory</p>
+                
+                <nav class="navbar navbar-expand-md tm-main-nav-container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
+                        <ul class="nav nav-fill tm-main-nav-ul">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="DFA.html">DFA</a></li>
+                            <li class="nav-item"><a class="nav-link" href="NFA.html">NFA</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                
+            </header>
+            
+            <div class="tm-main-content">
+                <section class="tm-margin-b-l">
+                    <header>
+                        <h2 class="tm-blue-text tm-margin-b-p">What is Finite Automata?</h2>    
+                    </header>
+                    
+                    <p><b>Finite automata </b>(FA), also widely known as Finite State Automata (FSA), deals with the designing of a model of a machine which are used to <b>recognize patterns</b> in a given string. <br><br>
+                    <b>Explanation:</b><br>
+                    <video id="explanation1" width="700" height="300" controls>
+                      <source src="video/explanation1.mp4">
+                    Your browser does not support the video tag.
+                    </video>
+
+                    <br><br>Finate Automata has the idea of:</p><br>
+
+                    <ul>
+                        <li>A system changing state due to inputs supplied to it.</li>
+                        <li>Some of these states being acceptor or final states.</li>
+                    </ul>
+
+                    <p>In general, the key definition of Finite Automata is a 5-tuple (Q,Σ,I,F,δ) where:</p>
+
+                    <ul>
+                        <li>Q = the finite set of States.</li>
+                        <li>∑ = the finite set of Inputs.</li>
+                        <li>I = the Initial/Starting State.</li>
+                        <li>F = finite set of Final/Accepting States.</li>
+                        <li>δ = Transition Function.</li>
+                    </ul>
+                    <br>
+
+                    <p>Finite automata takes the string of input and changes its state accordingly. When the desired input is found, then the transition occurs. At the time of transition, the automata can either move to the next state or stay in the same state.</p><br><br>
+                    
+                    
+
+                    <p>Finite Automata can be classified into two types:</p>
+                    <br>
+
+                    <!-- Deterministic -->
+                    <div class="deterministic">
+                        <a href="DFA.html" class="d">Deterministic Finite Automata</a>
+                        <p align="justify"><b>Deterministic Finite Automata</b> (DFA) - from the word <i>deterministic</i>, this means that it can only be in, and transition to, "one state" at a time for a given input. A DFA can have a transition (change of state) based on the set of inputs it has.<br>
+                        <br>The transition function of a DFA can be defined as δ: Q x ∑→Q. This means that the cross product of an element of set Q(states) and an element of set ∑(inputs) will have a transition to the element of set Q.</p>
+
+                        <h4 class="tm-main-title">Graphical Representation of DFA</h4>
+                        <ol>
+                            <li>The states are represented by vertices (circles).</li>
+                            <li>The arc or arrow labeled with input/s show the transitions.</li>
+                            <li>The initial state is pointed by plain arrow.</li>
+                            <li>The final state/s are marked with a double circle.</li>
+                        </ol>
+
+                        <div class="examples">
+                            <h5 class="tm-main-title">Example:</h5>
+                            <p>We can make a DFA based on the patterns guessed from the video in <a id="topvideo" href="#explanation1">explanation 1</a>. That would be a DFA with ∑ = {0, 1} that accepts all strings having 1 then followed by 0 in it.<br><br>
+                               Let:
+                               Q = {A, B, C} or The set of states<br>
+                               ∑ = {0, 1} or The set of inputs<br>
+                               I = {A} or The initial state<br>
+                               F = {C} or The set of Final State
+                            </p>
+
+                            <p>Creating Transition Diagram: </p>
+                            <video id="explanation1" width="700" height="300" controls>
+                              <source src="video/diagram1.mp4">
+                            Your browser does not support the video tag.
+                            </video>
+                            <p>The Completed Diagram:</p>
+                            <div class="diagram1">
+                                <div class="States">
+                                    <!-- Initial State Vertex -->
+                                    <svg width="120px" height="40px" class="initial">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path id="arrow1" d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="40" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="4" y="15" fill="black" font-size="12">Start</text>
+                                    </svg>
+
+                                    <!-- State A input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-1">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15" fill="black" font-size="12">1</text>
+                                    </svg>
+
+                                    <!-- State A input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-0">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4"  markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0 z" fill="black" stroke="black" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke="black" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="15" y="25" fill="black" font-size="12" id="SA0">0</text>
+                                    </svg>
+
+                                    <!-- State B input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-1">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0z" fill="black" stroke="black" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke="black" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="15" y="25" fill="black" font-size="12">1</text>
+                                    </svg>
+
+                                    <!-- State B input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-0">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15" fill="black" font-size="12">0</text>
+                                    </svg>
+
+                                    <!-- State C input 0,1 Vertex -->
+                                    <svg width="120px" height="40px" class="SC">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0z" fill="black" stroke="black" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke="black" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="10" y="25" fill="black" font-size="12">0,1</text>
+                                    </svg>
+
+                                    <!-- Verteces -->
+                                    <div class="State" id="s-a">A</div>
+                                    <div class="State" id="s-b">B</div>
+                                    <div class="State" id="s-c">C</div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <p>Transition Table:</p>
+
+                            <div class="table">
+                                <table class="table-example1">
+                                    <tr>
+                                        <th id="hide"></th>
+                                        <th>∑ = 0</th>
+                                        <th>∑ = 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = A</th>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = B</th>
+                                        <td>C</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = C</th>
+                                        <td>C</td>
+                                        <td>C</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>Transition Tables are another way of representing a Finite Automata. The Table shows the <b>transition</b> of a state for a given input. For example, when <b>State A</b> gets an <b>input 0</b>, the transition of the State would stay in <b>State A</b> as stated in the table. However, if <b>State A</b> got an input <b>1</b>, the transition of State would go to <b>State B</b>.</p>
+
+                            <a href="DFA.html#example1">See the simulator</a>
+                        </div>
+                    </div>
+
+
+                    <!-- Non Deterministic -->
+                    <div class="non-deterministic">
+                        <a href="NFA.html" class="d">Non-Deterministic Finite Automata</a>
+                        <p align="justify"><b>Non-Deterministic Finite Automata</b> (NFA) - from the word <i>non-deterministic</i>, has a principle where it can be in, and transition to, "multiple states" at once depending on the given input. In NFA, there might be several possible final states that could result from reading a given string of inputs; as long as at least one of them is a final state, then the string is accepted.<br><br>Now that we know a NFA may transition to multiple state at a time, then it is obvious that the transition function of a NFA is different from DFA which can be defined as δ: Q x ∑→ 2 ^ Q. This means that the cross product of an element of set Q(states) and an element of set ∑(inputs) will have a transition to the element of power set of Q, not just from the elements of set Q itself. <br><br><b>Power set</b> means "the set of all subsets of a given set", for example we have Q = {A,B,C}, the Power set of Q or P(Q) = {{∅},{A},{B},{C},{A,B},{A,C},{B,C},{A,B,C}}.<br><br>
+                        </p>
+
+                        <h4 class="tm-main-title">Graphical Representation of NFA</h4>
+                        <ol>
+                            <li>The states are represented by vertices (circles).</li>
+                            <li>The arc or arrow labeled with input/s show the transitions.</li>
+                            <li>The initial state is marked with plain arrow.</li>
+                            <li>The final state/s are marked by double circle.</li>
+                        </ol>
+
+                        <div class="nexamples">
+                            <h5 class="tm-main-title">Example:</h5>
+                            <p>A NFA with ∑ = {0, 1} that accepts all strings ending with '01'. <br>
+                               Let:
+                               Q = {A, B, C} or The set of states<br>
+                               ∑ = {0, 1} or The set of inputs<br>
+                               I = {A} or The initial state<br>
+                               F = {C} or The set of Final State
+                            </p>
+                            
+
+                            <p>Transition Diagram: </p>
+                            <div class="diagram1">
+                                <div class="States">
+                                    <!-- Initial State Vertex -->
+                                    <svg width="120px" height="40px" class="initial">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path id="arrow1" d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="40" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="4" y="15" fill="black" font-size="12">Start</text>
+                                    </svg>
+
+                                    <!-- State A input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-1">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15" fill="black" font-size="12">0</text>
+                                    </svg>
+
+                                    <!-- State A input 0,1 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-0">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4"  markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0 z" fill="black" stroke="black" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke="black" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="10" y="25" fill="black" font-size="12" id="SA0">0,1</text>
+                                    </svg>
+
+                                    <!-- State B input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-0">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="40" y="15" fill="black" font-size="12">1</text>
+                                    </svg>
+
+                                    <!-- Verteces -->
+                                    <div class="State" id="s-a">A</div>
+                                    <div class="State" id="s-b">B</div>
+                                    <div class="State" id="s-c">C</div>
+                                </div>
+
+                            </div>
+
+                            <p>Transition Table:</p>
+                            <div class="table">
+                                <table class="table-example1">
+                                    <tr>
+                                        <th id="hide"></th>
+                                        <th>∑ = 0</th>
+                                        <th>∑ = 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = A</th>
+                                        <td>A,B</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = B</th>
+                                        <td></td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = C</th>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>    
+                            </div>
+
+                            <a href="NFA.html#example1">See Explanation</a>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <footer>
+                Made by: Arvin Jay Nadal | Adriane Cortez
+            </footer>    
+        </div>
+        
+        <!-- load JS files -->
+       <!--
+        <script>
+            //document.getElementById("s-a").style.backgroundColor = "red";
+            var x = document.getElementById("s-a");
+            x.textContent = "2";
+            console.log(x);
+            /*var x = document.getElementById("arrow1");
+            x.style.fill = "red";
+            console.log(x);*/
+        </script>
+        -->
+        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->     
+        
+</body>
+</html>

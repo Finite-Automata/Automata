@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deterministic Finite Automata</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="css/dfa.css">                          
+
+</head>
+
+    <body>
+        
+        <div class="container">
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Finite State Automata</h1>
+                <p class="tm-site-description">An Introduction to Automata Theory</p>
+                
+                <nav class="navbar navbar-expand-md tm-main-nav-container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
+                        <ul class="nav nav-fill tm-main-nav-ul">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">DFA</a></li>
+                            <li class="nav-item"><a class="nav-link" href="NFA.html">NFA</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                
+            </header>
+            
+            <div class="tm-main-content">
+                <section class="tm-margin-b-l">
+                    <header>
+                        <h2 class="tm-blue-text">Deterministic Finite Automata</h2>    
+                    </header>
+
+                    <!-- Deterministic -->
+                    <div href="#" class="deterministic">
+                        <p align="justify"><b>Deterministic Finite Automata</b> (DFA) - from the word <i>deterministic</i>, has a principle where it can only be in, and transition to, "one state" at a time for a given input. A DFA can have a transition (change of state) based on the set of inputs it has.<br><br>
+
+                        The definition of Deterministic Finite Automata is a 5-tuple (Q,Σ,I,F,δ) where:</p>
+
+                        <ul>
+                            <li>Q: finite set of States.</li>
+                            <li>∑: finite set of Inputs.</li>
+                            <li>q: the Initial/Starting State.</li>
+                            <li>F: finite set of Final/Accepting States.</li>
+                            <li>δ: Transition Function.</li>
+                        </ul>
+
+                        <p>The transition function of a DFA can be defined as δ: Q x ∑→Q. This means that the cross product of an element of set Q(states) and an element of set ∑(inputs) will have a transition to an element of set Q.</p>
+                        <!--
+                        <audio id="audio1">
+                          <source src="maroon5.mp3">
+                          Your browser does not support the audio element.
+                        </audio>
+                        -->
+                        <h4 class="tm-main-title">Graphical Representation of DFA</h4>
+                        <ol>
+                            <li>The states are represented by vertices (circles).</li>
+                            <li>The arc or arrow labeled with input/s show the transitions.</li>
+                            <li>The initial state is marked with plain arrow.</li>
+                            <li>The final state/s are marked by a double circle.</li>
+                        </ol>
+
+                        <div class="examples">
+                            <h5 class="tm-main-title">Example 1:</h5>
+                            <p>Problem: Create a DFA with ∑ = {0, 1} that accepts all strings that has '10' in it. <br>
+                               Let:
+                               Q = {A, B, C} or The set of states<br>
+                               ∑= {0, 1} or The set of inputs<br>
+                               I = {A} or The initial state<br>
+                               F = {C} or The set of Final State
+                            </p>
+                            <audio id="audioInitial" hidden>
+                              <source src="audio/Initial.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioA-0" hidden>
+                              <source src="audio/A-0.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioA-1" hidden>
+                              <source src="audio/A-1.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioB-0" hidden>
+                              <source src="audio/B-0.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioB-1" hidden>
+                              <source src="audio/B-1.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioC-0" hidden>
+                              <source src="audio/C-0.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioC-1" hidden>
+                              <source src="audio/C-1.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="accepted" hidden>
+                              <source src="audio/Accepted.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="rejected" hidden>
+                              <source src="audio/Rejected.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+
+                            <!--Example2 Audio-->
+                            <audio id="audioA-0.2" hidden>
+                              <source src="audio/A-0.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioA-1.2" hidden>
+                              <source src="audio/A-1.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioB-0.2" hidden>
+                              <source src="audio/B-0.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioB-1.2" hidden>
+                              <source src="audio/B-1.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioC-0.2" hidden>
+                              <source src="audio/C-0.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <audio id="audioC-1.2" hidden>
+                              <source src="audio/C-1.2.wav">
+                              Your browser does not support the audio element.
+                            </audio>
+
+                            <p id="example1">Transition Diagram Simulator: </p>
+                            <img id="legend" src="img/Legend.jpg">
+                            <div class="diagram1">
+                                <div class="States">
+                                    <!-- Initial State Vertex -->
+                                    <svg width="120px" height="40px" class="initial" id="initial" font-size="12">
+                                      <defs>
+                                        <marker id="arrow1" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="40" y2="20" stroke-width="2" marker-end="url(#arrow1)" />
+                                      <text x="4" y="15">Start</text>
+                                    </svg>
+
+                                    <!-- State A input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-1" font-size="12">
+                                      <defs>
+                                        <marker id="arrow2" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke-width="2" marker-end="url(#arrow2)" />
+                                      <text x="40" y="15">1</text>
+                                    </svg>
+
+                                    <!-- State A input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-0" font-size="12">
+                                      <defs>
+                                        <marker id="rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4"  markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0 z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke-width="2" fill="none" marker-end="url(#rarrow)"/>
+                                      <text x="15" y="25">0</text>
+                                    </svg>
+
+                                    <!-- State B input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-1" font-size="12">
+                                      <defs>
+                                        <marker id="rarrow2" markerWidth="10" markerHeight="10" refX="2" refY="4" markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke-width="2" fill="none" marker-end="url(#rarrow2)"/>
+                                      <text x="15" y="25">1</text>
+                                    </svg>
+
+                                    <!-- State B input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-0" font-size="12">
+                                      <defs>
+                                        <marker id="arrow3" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke-width="2" marker-end="url(#arrow3)" />
+                                      <text x="40" y="15">0</text>
+                                    </svg>
+
+                                    <!-- State C input 0,1 Vertex -->
+                                    <svg width="120px" height="40px" class="SC" font-size="12">
+                                      <defs>
+                                        <marker id="rarrow3" markerWidth="10" markerHeight="10" refX="2" refY="4" markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke-width="2" fill="none" marker-end="url(#rarrow3)"/>
+                                      <text x="10" y="25">0,1</text>
+                                    </svg>
+
+                                    <!-- Verteces -->
+                                    <div class="State" id="s-a">A</div>
+                                    <div class="State" id="s-b">B</div>
+                                    <div class="State" id="s-c">C</div>
+                                </div>
+
+
+                                <div class="l1"><p id="label1"></p></div>
+                                <button class="simulate-btn" id="run" title="Run Simulator" onclick="simulate('inputstring', 'label1'), $('#stop').removeAttr('disabled');">Simulate</button>
+                                <button class="simulate-btn" id="stop" title="Stop Simulation" onclick="stop('inputstring', 'label1'), $('#stop').attr('disabled','disabled');" disabled>Stop</button>
+                                <form>
+                                    <input type="text" id="inputstring" name="string" placeholder="Input strings of 1,0" onkeypress="return keypresshandler(event)"/>
+                                </form>
+                            </div>
+                            <p align="center">The simulator will simulate the inputs one-by-one so that you can observe the transitions. You need to click simulate for every inputs you have.</p>
+                            <p>Transition Table:</p>
+                            <div class="table">
+                                <table class="table-example1">
+                                    <tr>
+                                        <th id="hide"></th>
+                                        <th>∑ = 0</th>
+                                        <th>∑ = 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = A</th>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = B</th>
+                                        <td>C</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = C</th>
+                                        <td>C</td>
+                                        <td>C</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>Transition Tables are another way of representing a Finite Automata. The Table shows the <b>transition</b> of a state for a given input. For example, when <b>State A</b> gets an <b>input 0</b>, the transition of the State would stay in <b>State A</b> as stated in the table. However, if <b>State A</b> got an input <b>1</b>, the transition of State would go to <b>State B</b>.</p>
+                            <!-- end example1 -->
+
+                            <h5 class="tm-main-title" id="example2">Example 2:</h5>
+                            <p>Problem: Create a DFA with ∑ = {0, 1} that accepts all strings ENDING with '01'. <br>
+                               Let:
+                               Q = {A, B, C} or The set of States<br>
+                               ∑ = {0, 1} or The set of Inputs<br>
+                               I = {A} or The Initial State<br>
+                               F = {C} or The set of Final States
+                            </p>
+                            
+                            <p>Transition Diagram Simulator: </p>
+                            <img id="legend" src="img/Legend.jpg">
+                            <div class="diagram1">
+                                <div class="States">
+                                    <!-- Initial State Vertex -->
+                                    <svg width="120px" height="40px" class="initial2" id="initial" font-size="12">
+                                      <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="40" y2="20" stroke-width="2" marker-end="url(#arrow)" />
+                                      <text x="4" y="15">Start</text>
+                                    </svg>
+
+                                    <!-- State A input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-1-0" font-size="12">
+                                      <defs>
+                                        <marker id="2arrow2" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z"/>
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke-width="2" marker-end="url(#2arrow2)" />
+                                      <text x="40" y="15">0</text>
+                                    </svg>
+
+                                    <!-- State A input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SA-0-1" font-size="12">
+                                      <defs>
+                                        <marker id="2rarrow" markerWidth="10" markerHeight="10" refX="2" refY="4"  markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0 z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke-width="2" fill="none" marker-end="url(#2rarrow)"/>
+                                      <text x="15" y="25">1</text>
+                                    </svg>
+
+                                    <!-- State B input 0 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-1-0" font-size="12">
+                                      <defs>
+                                        <marker id="2rarrow2" markerWidth="10" markerHeight="10" refX="2" refY="4" markerUnits="strokeWidth">
+                                          <path d="M0,0 L2,4 4,0z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 10 35 A16,16 0 1 1 35,26" stroke-width="2" fill="none" marker-end="url(#2rarrow2)"/>
+                                      <text x="15" y="25">0</text>
+                                    </svg>
+
+                                    <!-- State B input 1 Vertex -->
+                                    <svg width="120px" height="40px" class="SB-0-1" font-size="12">
+                                      <defs>
+                                        <marker id="2arrow3" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,6 L9,3 z" />
+                                        </marker>
+                                      </defs>
+                                      <line x1="0" y1="20" x2="80" y2="20" stroke-width="2" marker-end="url(#2arrow3)" />
+                                      <text x="40" y="15">1</text>
+                                    </svg>
+
+                                    <!-- State C input 0 Vertex -->
+                                    <svg width="300px" height="40px" class="SC-0" font-size="12">
+                                      <defs>
+                                        <marker id="2barrow" markerWidth="10" markerHeight="10" refX="0" refY="2" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,4 4,2.5z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 240 10 A4,1 0 1 1 135,20" stroke-width="2" fill="none" marker-end="url(#2barrow)"/>
+                                      <text x="185" y="23">0</text>
+                                    </svg>
+
+                                    <!-- State C input 1 Vertex -->
+                                    <svg width="300px" height="40px" class="SC-1" font-size="12">
+                                      <defs>
+                                        <marker id="2barrow1" markerWidth="10" markerHeight="10" refX="0" refY="2" orient="auto" markerUnits="strokeWidth">
+                                          <path d="M0,0 L0,4 4,2.5z" stroke-width="1"/>
+                                        </marker>
+                                      </defs>
+                                      <path d="M 280 0 A5,1 0 1 1 5,10" stroke-width="2" fill="none" marker-end="url(#2barrow1)"/>
+                                      <text x="130" y="28">1</text>
+                                    </svg>
+
+                                    <!-- Verteces -->
+                                    <div class="State" id="s-a2">A</div>
+                                    <div class="State" id="s-b2">B</div>
+                                    <div class="State" id="s-c2">C</div>
+                                </div>
+
+
+                                <div class="l1"><p id="label2"></p></div>
+                                <button class="simulate-btn" id="run" title="Run Simulator" onclick="simulate2('inputstring2', 'label2'), $('#stop2').removeAttr('disabled');">Simulate</button>
+                                <button class="simulate-btn" id="stop2" title="Stop Simulation" onclick="stop2('inputstring2', 'label2'), $('#stop2').attr('disabled','disabled');" disabled>Stop</button>
+                                <form>
+                                    <input type="text" id="inputstring2" name="string" placeholder="Input strings of 1,0" onkeypress="return keypresshandler(event)"/>
+                                </form>
+                            </div>
+                            <p align="center">The simulator will simulate the inputs one-by-one so that you can observe the transitions. You need to click simulate for every inputs you have.</p>
+                            <p>Transition Table:</p>
+                            <div class="table">
+                                <table class="table-example1">
+                                    <tr>
+                                        <th id="hide"></th>
+                                        <th>∑ = 0</th>
+                                        <th>∑ = 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = A</th>
+                                        <td>B</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = B</th>
+                                        <td>B</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Q = C</th>
+                                        <td>B</td>
+                                        <td>A</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>This Table shows the <b>transition</b> of a state for a given input. For example, when <b>State A</b> gets an <b>input 0</b>, the transition of the State would be <b>State B</b> as stated in the table. However, if <b>State A</b> got an input <b>1</b>, the transition of State would stay in <b>State A</b>.</p>
+                            <!-- end example2 -->
+
+                        <!-- end examples -->
+                        </div>
+                        <!-- start of quiz -->
+                        <div>
+                          <span><-----TEST YOURSELF-----></span>
+                          <br><br>
+                          <p>
+                            1. Finite State Automata's key definition is a _______.<br>
+                            a) 4-Tuple<br>
+                            b) 5-Tuple<br>
+                            c) 6-Tuple<br>
+                            d) Unlimited-Tuple
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: B<br>
+                                Explanation: Finite Automata has 5-Tuple where Q = the finite set of States. ∑ = the finite set of Inputs. I = the Initial/Starting State where. F = finite set of Final/Accepting States. δ = Transition Function.</p>
+                             </div>
+                          </div>
+                          <p>
+                            2.) Transition Function of DFA <br>
+                            a) ∑ x Q -> ∑  <br>
+                            b) Q x ∑ -> ∑  <br>
+                            c) ∑ x Q -> Q <br>
+                            d) Q x ∑ -> Q 
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: D <br>
+                                DFA's transition function is the cross product of Q(State) and ∑(Input) which will have a result of Q.</p>
+                             </div>
+                          </div>
+                          <p>
+                            3.) The Principle of DFA<br>
+                            a) Multiple State at a time <br>
+                            b) One State at a time <br>
+                            c) none of the above
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: B
+                                Explanation: A DFA can only be in and Transition to ONE STATE at a time.</p>
+                             </div>
+                          </div>
+                             <p>
+                            4.) A DFA's transition function returns <br>
+                            a) A Boolean <br>
+                            b) An input <br>
+                            c) A set of States
+                          </p>
+                          <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: C
+                                Explanation: The transition function of DFA is Q x ∑ -> Q.</p>
+                             </div>
+                        </div>
+                            <p>
+                             5.) Statement 1: A Finite automata can be represented in a table; Statement 2: The nodes/vertices can be FA's states in the Diagram; Statement 3: The edges or arcs can be used for transitions in the Diagram<br>
+                              a) Statement 1 is false but Statement 2 and 3 are correct <br>
+                              b) Statement 1 and 2 are correct while 3 is wrong <br>
+                              c) None of the above <br>
+                              d) All of the above
+                              </p>
+                              <div class="dropdown">
+                            <span style = "color:blue">VIEW ANSWER</span>
+                             <div class="dropdown-content">
+                               <p style = "color:red">Answer: D
+                                Explanation: Finite automata can be represented by the table. The diagram shows nodes/vertices for states while the edges are for transitions</p>
+                             </div>
+                        </div>
+                        <!-- end of quiz -->
+                    </div>
+
+                </section>
+
+            </div>
+
+            <footer>
+                Made by: Arvin Jay Nadal | Adriane Cortez
+            </footer>    
+        </div>
+        
+        <!-- load JS files -->
+       <!--
+        <script>
+            //document.getElementById("s-a").style.backgroundColor = "red";
+            var x = document.getElementById("s-a");
+            x.textContent = "2";
+            console.log(x);
+            /*var x = document.getElementById("arrow1");
+            x.style.fill = "red";
+            console.log(x);*/
+        </script>
+        -->
+        <script src="js/dfa.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        
+</body>
+</html>
